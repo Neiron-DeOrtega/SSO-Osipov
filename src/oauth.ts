@@ -20,9 +20,9 @@ const JWT_SECRET = process.env.JWT_SECRET || ''
 
 export function initOAuth(app: Express, config: OAuthConfig) {
     // Маршрут для обработки токена
-    app.post('/auth/oauth/token', async (req: Request, res: Response): Promise<void> => {
+    app.post('/auth/oauth/token', async (req: Request, res: Response): Promise<any> => {
         if (!req.body.code) {
-            res.status(400).json({ error: 'Authorization code is required' });
+            return res.status(400).json({ error: 'Authorization code is required' });
         }
 
         try {

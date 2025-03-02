@@ -13,6 +13,11 @@ const findByEmail = (email: any, callback: any) => {
 }
 
 export function initSAML(app: Express, samlConfig: Config['saml']) { 
+
+    if (!samlConfig.callbackUrl || !samlConfig.entryPoint || !samlConfig.issuer || !samlConfig.cert) {
+        throw new Error('Missing required SAML configuration');
+    }
+    
     passport.use(
         new SamlStrategy(
             {
