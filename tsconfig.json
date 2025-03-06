@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "strict": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
-  }
+    "target": "ES6",                       // Поддержка современных возможностей JavaScript
+    "module": "commonjs",                   // Используем commonjs для Node.js
+    "strict": true,                         // Включение строгой типизации
+    "experimentalDecorators": true,         // Включаем поддержку декораторов
+    "emitDecoratorMetadata": true,          // Для работы с декораторами
+    "esModuleInterop": true,                // Поддержка импорта CommonJS-модулей
+    "allowSyntheticDefaultImports": true,   // Для синтетических дефолтных импортов
+    "outDir": "./dist",                     // Указываем директорию для компиляции
+    "rootDir": "./src",                     // Исходная директория
+    "skipLibCheck": true,                   // Пропуск проверки типов в библиотеках (ускоряет компиляцию)
+    "forceConsistentCasingInFileNames": true // Требуется, чтобы все имена файлов были консистентны
+  },
+  "include": ["src/**/*"],                  // Включаем все файлы в src
+  "exclude": ["node_modules"]               // Исключаем node_modules
 }

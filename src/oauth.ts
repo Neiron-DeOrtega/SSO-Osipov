@@ -101,8 +101,9 @@ export function initOAuth(app: Express, config: OAuthConfig) {
             // Создание JWT токена
             const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '1h' });
 
-            // Возврат информации о пользователе и токена
-            res.status(200).json({ message: 'User authenticated', user, token });
+            res.redirect(`https://frontend.deortega.ru/auth-success?token=${token}&name=${encodeURIComponent(userData.name)}&email=${encodeURIComponent(userData.email)}&avatar=${encodeURIComponent(userData.avatar)}`)
+
+            // res.status(200).json({ message: 'User authenticated', user, token, access_token: response.data.access_token });
         } catch (error: any) {
             console.error('Google OAuth Callback Error:', error.response?.data || error.message);
             res.status(500).json({
